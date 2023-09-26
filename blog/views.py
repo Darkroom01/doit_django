@@ -1,10 +1,12 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 class PostList(ListView):
     model = Post
     ordering = '-pk'
+
+class PostDetail(DetailView):
+    model = Post
 
 # def index(request):
 #     posts = Post.objects.all().order_by('-pk')
@@ -17,13 +19,13 @@ class PostList(ListView):
 #         }
 #     )
 #
-def single_post_page(reqeust, pk):
-    post = Post.objects.get(pk=pk)
-
-    return render(
-        reqeust,
-        'blog/single_post_page.html',
-        {
-            'post' : post,
-        }
-    )
+# def single_post_page(reqeust, pk):
+#     post = Post.objects.get(pk=pk)
+#
+#     return render(
+#         reqeust,
+#         'blog/post_detail.html',
+#         {
+#             'post' : post,
+#         }
+#     )

@@ -60,6 +60,7 @@
 
         <!-- Title -->
         <h1 class="mt-4">{{ post.title }}</h1>
+        <h5 class="text-muted">{{ post.hook_text }}</h5>
 
         <!-- Author -->
         <p class="lead">
@@ -85,8 +86,8 @@
 
         <!-- Post Content -->
         <p>{{ post.content }}</p>
-        {% if post.file_upload %}
-      <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button"download>
+          {% if post.file_upload %}
+             <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button"download>
             Download:
             {%  if post.get_file_ext == 'csv' %}
                 <i class = "fas fa-file-csv"></i>
@@ -97,8 +98,10 @@
                 {% else %}
                 <i class="far fa-file"></i>
                 {{ post.get_file_name }}
+                </a>
       {% endif %}
-      </a>
+      {% endif %}
+
         <hr>
 
         <!-- Comments Form -->
